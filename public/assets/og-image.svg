@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Spontaneous Confections — An Explosion of Flavor">
+  <defs>
+    <linearGradient id="og-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbf5ea" />
+      <stop offset="1" stop-color="#f4ead9" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#og-bg)" />
+  <circle cx="1120" cy="80" r="220" fill="#ef7f9a" opacity="0.12" />
+  <circle cx="90" cy="560" r="200" fill="#74c4e0" opacity="0.14" />
+
+  <text x="100" y="150" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" font-weight="600" letter-spacing="7" fill="#1c7a9d">CAPITOLA · SANTA CRUZ COUNTY</text>
+  <text x="96" y="280" font-family="Georgia, 'Times New Roman', serif" font-size="104" font-weight="700" fill="#34211a">Spontaneous</text>
+  <text x="96" y="392" font-family="Georgia, 'Times New Roman', serif" font-size="104" font-weight="700" fill="#482a70">Confections</text>
+  <text x="100" y="470" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-style="italic" fill="#6a5346">An Explosion of Flavor</text>
+
+  <rect x="100" y="520" width="120" height="44" rx="12" fill="#482a70" />
+  <rect x="232" y="520" width="120" height="44" rx="12" fill="#ef7f9a" />
+  <rect x="364" y="520" width="120" height="44" rx="12" fill="#74c4e0" />
+
+  <text x="1100" y="556" text-anchor="end" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="26" fill="#6a5346">spontaneousconfections.com · (831) 480-5166</text>
+</svg>

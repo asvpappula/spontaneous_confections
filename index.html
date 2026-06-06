@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon (replace /favicon.svg with the client monogram export).
+         TODO: add a 180x180 PNG at /apple-touch-icon.png for iOS home screens,
+         then re-add: <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#482a70" />
+
+    <!-- Primary meta (per-page values are overridden by the <Seo> component) -->
+    <title>Spontaneous Confections — Artisanal Pastry &amp; Chocolate in Capitola, CA</title>
+    <meta
+      name="description"
+      content="Spontaneous Confections is a specialty patisserie in the Capitola Mall food court serving French-inspired pastries, tarts, Dubai chocolate bars, and handmade chocolate confections. An Explosion of Flavor."
+    />
+    <link rel="canonical" href="https://spontaneousconfections.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Spontaneous Confections" />
+    <meta property="og:title" content="Spontaneous Confections — An Explosion of Flavor" />
+    <meta
+      property="og:description"
+      content="French-inspired pastries, tarts, Dubai chocolate bars, and handmade chocolate confections in Capitola, California."
+    />
+    <meta property="og:url" content="https://spontaneousconfections.com/" />
+    <meta property="og:image" content="https://spontaneousconfections.com/assets/og-image.svg" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Spontaneous Confections — An Explosion of Flavor" />
+    <meta
+      name="twitter:description"
+      content="French-inspired pastries, tarts, Dubai chocolate bars, and handmade chocolate confections in Capitola, California."
+    />
+    <meta name="twitter:image" content="https://spontaneousconfections.com/assets/og-image.svg" />
+
+    <!-- Fonts: Anton (hero poster headline), Baloo 2 (display), Inter (body), Caveat (accent) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Baloo+2:wght@500;600;700;800&family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Local business structured data (JSON-LD).
+         TODO: add "openingHoursSpecification" once hours are confirmed with the client. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Bakery",
+        "name": "Spontaneous Confections",
+        "image": "https://spontaneousconfections.com/assets/og-image.svg",
+        "@id": "https://spontaneousconfections.com",
+        "url": "https://spontaneousconfections.com",
+        "telephone": "+1-831-480-5166",
+        "foundingDate": "2023",
+        "slogan": "An Explosion of Flavor",
+        "priceRange": "$$",
+        "servesCuisine": ["Pastries", "Chocolate", "Desserts", "French Patisserie"],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1855 41st Ave",
+          "addressLocality": "Capitola",
+          "addressRegion": "CA",
+          "postalCode": "95010",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 36.9759,
+          "longitude": -121.9585
+        },
+        "areaServed": ["Capitola", "Santa Cruz", "Aptos", "Soquel"],
+        "sameAs": ["https://www.instagram.com/spontaneous_confections/"]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      Spontaneous Confections — specialty pastry &amp; chocolate confections at the
+      Capitola Mall food court, 1855 41st Ave, Capitola, CA 95010. Call (831) 480-5166.
+      Please enable JavaScript to view the full site.
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

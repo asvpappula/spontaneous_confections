@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 92" role="img" aria-label="Spontaneous Confections">
+  <!-- Light version for dark footer background -->
+  <rect x="6" y="14" width="64" height="64" rx="18" fill="#faf4ea" />
+  <circle cx="58" cy="26" r="4" fill="#119ca2" />
+  <text x="38" y="58" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#5b2a66" letter-spacing="0.5">SC</text>
+  <text x="88" y="46" font-family="Georgia, 'Times New Roman', serif" font-size="31" font-weight="700" fill="#faf4ea" letter-spacing="-0.3">Spontaneous</text>
+  <text x="90" y="71" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14.5" font-weight="600" fill="#f6e6a4" letter-spacing="5.5">CONFECTIONS</text>
+</svg>

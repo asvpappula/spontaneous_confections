@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Spontaneous Confections">
+  <rect width="100" height="100" rx="22" fill="#482a70" />
+
+  <!-- broken double ring -->
+  <circle cx="50" cy="50" r="44" fill="none" stroke="#74c4e0" stroke-width="2" stroke-linecap="round" stroke-dasharray="56 14" transform="rotate(26 50 50)" />
+  <circle cx="50" cy="50" r="39.5" fill="none" stroke="#74c4e0" stroke-width="2" stroke-linecap="round" stroke-dasharray="47 12" transform="rotate(-14 50 50)" />
+
+  <!-- stars -->
+  <path d="M0,-3.6 L0.9,-1.24 L3.42,-1.11 L1.46,0.47 L2.12,2.91 L0,1.53 L-2.12,2.91 L-1.46,0.47 L-3.42,-1.11 L-0.9,-1.24 Z" fill="#74c4e0" transform="translate(15 57)" />
+  <path d="M0,-3.6 L0.9,-1.24 L3.42,-1.11 L1.46,0.47 L2.12,2.91 L0,1.53 L-2.12,2.91 L-1.46,0.47 L-3.42,-1.11 L-0.9,-1.24 Z" fill="#74c4e0" transform="translate(85 57)" />
+  <path d="M0,-3.6 L0.9,-1.24 L3.42,-1.11 L1.46,0.47 L2.12,2.91 L0,1.53 L-2.12,2.91 L-1.46,0.47 L-3.42,-1.11 L-0.9,-1.24 Z" fill="#74c4e0" transform="translate(50 89)" />
+
+  <!-- spatula -->
+  <g transform="translate(50 56) rotate(-30)">
+    <rect x="-3.2" y="-16" width="6.4" height="46" rx="3.2" fill="#fbf5ea" />
+    <ellipse cx="0" cy="-27" rx="8" ry="13.5" fill="#fbf5ea" />
+    <circle cx="0" cy="26" r="2" fill="#482a70" />
+  </g>
+
+  <!-- whisk -->
+  <g transform="translate(50 56) rotate(30)">
+    <path d="M0,-39 C-7,-36 -9,-22 -6.5,-13 L6.5,-13 C9,-22 7,-36 0,-39 Z" fill="none" stroke="#fbf5ea" stroke-width="2" />
+    <path d="M0,-37 L0,-13" fill="none" stroke="#fbf5ea" stroke-width="1.4" />
+    <path d="M0,-37 C-3.5,-27 -4.6,-20 -4.6,-13" fill="none" stroke="#fbf5ea" stroke-width="1.4" />
+    <path d="M0,-37 C3.5,-27 4.6,-20 4.6,-13" fill="none" stroke="#fbf5ea" stroke-width="1.4" />
+    <rect x="-6.5" y="-14.5" width="13" height="5" rx="2.5" fill="#fbf5ea" />
+    <rect x="-3" y="-9" width="6" height="39" rx="3" fill="#fbf5ea" />
+    <circle cx="0" cy="26" r="2" fill="#482a70" />
+  </g>
+</svg>

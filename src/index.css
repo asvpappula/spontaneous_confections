@@ -1,0 +1,309 @@
+@import 'tailwindcss';
+
+/* =============================================================================
+   SPONTANEOUS CONFECTIONS — DESIGN SYSTEM
+   -----------------------------------------------------------------------------
+   A tight, intentional palette: deep purple (the brand anchor), strong pink
+   (sweetness), soft sky blue (clean accent), warm cream (calm), and deep
+   chocolate text for readability. No rainbow, no random colors.
+
+   The root font-size is bumped to 17px so the whole rem-based scale (type,
+   spacing, max-widths) reads a touch larger and "closer" at 100% zoom, with no
+   CSS zoom or transform tricks.
+   ========================================================================== */
+
+@theme {
+  /* ---- Base ---------------------------------------------------------------- */
+  --color-cream: #fbf5ea; /* warm cream — primary background           */
+  --color-cream-deep: #f4ead9; /* deeper cream — alternating sections       */
+  --color-chocolate: #34211a; /* deep chocolate — primary body text        */
+  --color-chocolate-soft: #6a5346; /* muted cocoa — secondary text              */
+  --color-surface: #ffffff; /* white card surface                        */
+  --color-line: #e8ddcf; /* warm hairline border                      */
+  --color-line-purple: #e2d8ee; /* soft purple-tinted border for cards       */
+
+  /* ---- Purple (anchor) ---------------------------------------------------- */
+  --color-purple: #482a70;
+  --color-purple-deep: #341d54;
+
+  /* ---- Pink (sweetness) --------------------------------------------------- */
+  --color-pink: #ef7f9a; /* strong pink — accents, borders            */
+  --color-pink-deep: #cf4773; /* pink for filled buttons (white text)      */
+  --color-pink-soft: #fbe2e9; /* soft pastel pink — card tints             */
+
+  /* ---- Blue (clean accent) ------------------------------------------------ */
+  --color-blue: #74c4e0; /* soft sky blue — accents                   */
+  --color-blue-deep: #1c7a9d; /* blue for labels, focus, text on cream     */
+  --color-blue-soft: #ddeff8; /* soft sky tint — card tints                */
+
+  /* ---- Typography --------------------------------------------------------- */
+  /* Baloo 2 = chunky rounded display (headings + brand). Inter = clean body.
+     Caveat = handwritten script, used ONLY for tiny accent labels. */
+  --font-display: 'Baloo 2', 'Fredoka', 'Quicksand', ui-rounded, 'Segoe UI', sans-serif;
+  --font-brand: 'Baloo 2', 'Fredoka', 'Quicksand', ui-rounded, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-script: 'Caveat', 'Segoe Script', cursive;
+  /* Anton = heavy condensed block display, used ONLY for the homepage hero
+     headline (poster/advertising look). Everything else stays on Baloo 2. */
+  --font-poster: 'Anton', 'Archivo Black', 'Arial Narrow', Impact, sans-serif;
+
+  /* ---- Radii -------------------------------------------------------------- */
+  --radius-card: 1.25rem;
+  --radius-xl2: 1.75rem;
+  --radius-pill: 999px;
+
+  /* ---- Shadows (soft, purple-tinted) -------------------------------------- */
+  --shadow-soft: 0 8px 24px -14px rgba(72, 42, 112, 0.22);
+  --shadow-card: 0 16px 36px -18px rgba(72, 42, 112, 0.28);
+  --shadow-lift: 0 22px 48px -22px rgba(72, 42, 112, 0.34);
+}
+
+/* =============================================================================
+   BASE LAYER
+   ========================================================================== */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    /* Slightly larger base so the site feels closer/fuller at 100% zoom. */
+    font-size: 106.25%; /* 17px */
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    /* very soft brand blooms — subtle, never busy */
+    background-image:
+      radial-gradient(42rem 42rem at 110% -6%, rgba(239, 127, 154, 0.08), transparent 60%),
+      radial-gradient(38rem 38rem at -8% 2%, rgba(116, 196, 224, 0.08), transparent 58%);
+    color: var(--color-chocolate);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    color: var(--color-purple);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible blue focus ring for keyboard users */
+  :focus-visible {
+    outline: 3px solid var(--color-blue-deep);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: var(--color-pink-soft);
+    color: var(--color-chocolate);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* =============================================================================
+   COMPONENT LAYER
+   ========================================================================== */
+@layer components {
+  /* ---- Buttons (premium, clearly clickable) ------------------------------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 48px;
+    padding: 0.8rem 1.75rem;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-brand);
+    font-weight: 600;
+    font-size: 1.02rem;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    text-decoration: none;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      background-color 0.18s ease,
+      color 0.18s ease,
+      border-color 0.18s ease,
+      filter 0.18s ease;
+  }
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  .btn-primary {
+    background: var(--color-purple);
+    color: var(--color-cream);
+    box-shadow: var(--shadow-card);
+  }
+  .btn-primary:hover {
+    background: var(--color-purple-deep);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .btn-pink {
+    background: var(--color-pink-deep);
+    color: #ffffff;
+    box-shadow: var(--shadow-soft);
+  }
+  .btn-pink:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .btn-outline {
+    background: var(--color-surface);
+    color: var(--color-purple);
+    border-color: var(--color-purple);
+    box-shadow: var(--shadow-soft);
+  }
+  .btn-outline:hover {
+    background: var(--color-cream);
+    border-color: var(--color-purple-deep);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* For dark (purple) backgrounds */
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-cream);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--color-cream);
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Larger, more prominent CTA — used in the homepage hero */
+  .btn-lg {
+    min-height: 56px;
+    padding: 1.05rem 2.35rem;
+    font-size: 1.1rem;
+  }
+
+  /* ---- Surfaces ----------------------------------------------------------- */
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Soft, premium card with a touch more presence */
+  .sticker {
+    position: relative;
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-line-purple);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+  .sticker-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* ---- Badge / section label --------------------------------------------- */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1.5px solid var(--color-line-purple);
+    border-radius: var(--radius-pill);
+    padding: 0.4rem 0.9rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    color: var(--color-chocolate);
+  }
+
+  /* ---- Editorial helpers -------------------------------------------------- */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--color-blue-deep);
+  }
+
+  /* Handwritten script accent — tiny labels only, never body text */
+  .script {
+    font-family: var(--font-script);
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1;
+  }
+
+  .hairline {
+    height: 1px;
+    width: 100%;
+    background: var(--color-line);
+    border: 0;
+  }
+
+  /* Clean pink accent rule (replaces the old rainbow bar) */
+  .rule-brand {
+    height: 4px;
+    width: 72px;
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--color-pink), var(--color-purple));
+  }
+}
+
+/* Hero pastry image: static, with a subtle hover lift only (no constant motion).
+   The hover transition is disabled under prefers-reduced-motion by the base rule. */
+.hero-img {
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+}
+.hero-img:hover {
+  transform: translateY(-8px);
+}
