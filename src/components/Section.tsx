@@ -55,7 +55,6 @@ interface SectionHeadingProps {
 }
 
 export function SectionHeading({
-  eyebrow,
   title,
   intro,
   align = 'left',
@@ -67,12 +66,9 @@ export function SectionHeading({
   const isCenter = align === 'center'
   return (
     <div className={`${isCenter ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'} ${className}`}>
-      {eyebrow && (
-        <span className={`eyebrow ${inverted ? 'text-blue' : ''}`}>{eyebrow}</span>
-      )}
       <As
         id={id}
-        className={`mt-3 text-[2rem] font-extrabold leading-[1.05] sm:text-4xl lg:text-[3rem] ${
+        className={`text-[2.1rem] font-extrabold leading-[1.04] tracking-tight sm:text-[2.6rem] lg:text-[3.1rem] ${
           inverted ? 'text-cream' : 'text-purple'
         }`}
       >
@@ -80,7 +76,11 @@ export function SectionHeading({
       </As>
       <div className={`rule-brand mt-5 ${isCenter ? 'mx-auto' : ''}`} aria-hidden />
       {intro && (
-        <p className={`mt-5 text-lg sm:text-xl ${inverted ? 'text-cream/90' : 'text-chocolate-soft'}`}>
+        <p
+          className={`mt-5 text-lg leading-relaxed sm:text-xl ${
+            inverted ? 'text-cream/90' : 'text-chocolate-soft'
+          }`}
+        >
           {intro}
         </p>
       )}

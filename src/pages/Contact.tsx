@@ -5,7 +5,6 @@ import { Section } from '../components/Section'
 import { Container } from '../components/Container'
 import { FindUs } from '../components/FindUs'
 import { SocialLinks } from '../components/SocialLinks'
-import { StickerBadge } from '../components/decor'
 import { CheckIcon, MailIcon, PhoneIcon } from '../components/icons'
 import { site } from '../data/site'
 import { contact } from '../data/contact'
@@ -134,14 +133,13 @@ export function Contact() {
       />
 
       {/* Header */}
-      <section className="pb-9 pt-10 sm:pt-14">
+      <section className="bg-cream pb-10 pt-12 sm:pt-16 lg:pb-14">
         <Container>
-          <StickerBadge accent="pink">{contact.eyebrow}</StickerBadge>
-          <h1 className="mt-4 font-display text-4xl font-extrabold text-purple sm:text-5xl lg:text-[3.4rem]">
+          <h1 className="max-w-3xl font-display text-[2.5rem] font-extrabold leading-[1.03] tracking-tight text-purple sm:text-5xl lg:text-[3.4rem]">
             {contact.heading}
           </h1>
           <div className="rule-brand mt-5" aria-hidden />
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-chocolate-soft">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-chocolate-soft sm:text-xl">
             {contact.intro}
           </p>
         </Container>

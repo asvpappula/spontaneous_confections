@@ -226,7 +226,7 @@ export const menu: MenuCategory[] = [
       },
       {
         name: 'Cookie of the Week',
-        description: 'A rotating seasonal cookie — follow along on Instagram.',
+        description: 'A rotating seasonal cookie. Follow along on Instagram.',
         priceNote: 'Seasonal',
       },
     ],
@@ -244,7 +244,7 @@ export const menu: MenuCategory[] = [
     items: [
       {
         name: 'Custom Celebration Cakes',
-        description: 'Birthdays, weddings, and milestones — designed with you.',
+        description: 'Birthdays, weddings, and milestones, designed with you.',
         priceNote: 'By consultation',
       },
       {
@@ -258,7 +258,7 @@ export const menu: MenuCategory[] = [
         priceNote: 'By consultation',
       },
     ],
-    note: 'Lead times vary by season — reach out early through the Contact page.',
+    note: 'Lead times vary by season, so reach out early through the Contact page.',
   },
 ]
 

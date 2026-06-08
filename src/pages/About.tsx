@@ -3,12 +3,8 @@ import { Section, SectionHeading } from '../components/Section'
 import { Container } from '../components/Container'
 import { ButtonLink } from '../components/ButtonLink'
 import { PlaceholderImage } from '../components/PlaceholderImage'
-import { StickerBadge } from '../components/decor'
 import { Star5 } from '../components/doodles'
-import { ACCENT_PASTEL, ACCENT_SOLID, type Accent } from '../lib/accents'
 import { about } from '../data/about'
-
-const TIMELINE_ACCENTS: Accent[] = ['purple', 'pink', 'blue', 'purple']
 
 export function About() {
   return (
@@ -19,14 +15,15 @@ export function About() {
       />
 
       {/* Header */}
-      <section className="pb-9 pt-10 sm:pt-14">
+      <section className="bg-cream pb-10 pt-12 sm:pt-16 lg:pb-14">
         <Container>
-          <StickerBadge accent="pink">{about.eyebrow}</StickerBadge>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] text-purple sm:text-5xl lg:text-[3.3rem]">
+          <h1 className="max-w-3xl font-display text-[2.5rem] font-extrabold leading-[1.03] tracking-tight text-purple sm:text-5xl lg:text-[3.4rem]">
             {about.heading}
           </h1>
           <div className="rule-brand mt-5" aria-hidden />
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-chocolate-soft">{about.lede}</p>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-chocolate-soft sm:text-xl">
+            {about.lede}
+          </p>
         </Container>
       </section>
 
@@ -65,25 +62,17 @@ export function About() {
       {/* Values */}
       <Section spacing="tight" aria-label="What we value">
         <Container>
-          <SectionHeading eyebrow="What guides us" title="A few things we believe" />
-          <ul className="mt-9 grid gap-6 sm:grid-cols-2">
+          <SectionHeading title="A few things we believe" />
+          <ul className="mt-10 grid gap-x-12 gap-y-9 sm:grid-cols-2">
             {about.values.map((value) => (
-              <li
-                key={value.title}
-                className="sticker flex gap-4 p-6"
-                style={{ backgroundColor: ACCENT_PASTEL[value.accent] }}
-              >
-                <Star5
-                  className="mt-1 h-6 w-6 shrink-0"
-                  style={{ color: ACCENT_SOLID[value.accent] }}
-                  aria-hidden
-                />
-                <div>
+              <li key={value.title} className="border-t border-line-purple pt-5">
+                <div className="flex items-center gap-2.5">
+                  <Star5 className="h-4 w-4 shrink-0 text-pink" aria-hidden />
                   <h3 className="font-display text-xl font-semibold text-purple">{value.title}</h3>
-                  <p className="mt-1.5 text-base leading-relaxed text-chocolate-soft">
-                    {value.description}
-                  </p>
                 </div>
+                <p className="mt-2.5 max-w-prose text-base leading-relaxed text-chocolate-soft">
+                  {value.description}
+                </p>
               </li>
             ))}
           </ul>
@@ -93,31 +82,17 @@ export function About() {
       {/* Timeline */}
       <Section tone="deep" spacing="tight" aria-label="Our journey">
         <Container>
-          <SectionHeading eyebrow="The journey" title="From pop-up to storefront" />
-          <ol className="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {about.timeline.map((item, i) => {
-              const accent = TIMELINE_ACCENTS[i % TIMELINE_ACCENTS.length]
-              return (
-                <li
-                  key={item.year}
-                  className="sticker p-6"
-                  style={{ backgroundColor: ACCENT_PASTEL[accent] }}
-                >
-                  <span
-                    className="font-display text-2xl font-bold"
-                    style={{ color: ACCENT_SOLID[accent] }}
-                  >
-                    {item.year}
-                  </span>
-                  <h3 className="mt-2 font-display text-lg font-semibold text-purple">
-                    {item.title}
-                  </h3>
-                  <p className="mt-1.5 text-base leading-relaxed text-chocolate-soft">
-                    {item.description}
-                  </p>
-                </li>
-              )
-            })}
+          <SectionHeading title="From pop-up to storefront" />
+          <ol className="mt-10 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-4">
+            {about.timeline.map((item) => (
+              <li key={item.year} className="border-t-2 border-pink/40 pt-5">
+                <span className="font-display text-2xl font-bold text-pink-deep">{item.year}</span>
+                <h3 className="mt-2 font-display text-lg font-semibold text-purple">{item.title}</h3>
+                <p className="mt-1.5 text-base leading-relaxed text-chocolate-soft">
+                  {item.description}
+                </p>
+              </li>
+            ))}
           </ol>
         </Container>
       </Section>

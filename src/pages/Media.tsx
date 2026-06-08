@@ -3,7 +3,6 @@ import { Section, SectionHeading } from '../components/Section'
 import { Container } from '../components/Container'
 import { ButtonLink } from '../components/ButtonLink'
 import { MediaCard } from '../components/MediaCard'
-import { StickerBadge } from '../components/decor'
 import { media } from '../data/media'
 
 export function Media() {
@@ -18,14 +17,13 @@ export function Media() {
       />
 
       {/* Header */}
-      <section className="pb-9 pt-10 sm:pt-14">
+      <section className="bg-cream pb-10 pt-12 sm:pt-16 lg:pb-14">
         <Container>
-          <StickerBadge accent="blue">Press &amp; Mentions</StickerBadge>
-          <h1 className="mt-4 font-display text-4xl font-extrabold text-purple sm:text-5xl lg:text-[3.8rem]">
+          <h1 className="max-w-3xl font-display text-[2.5rem] font-extrabold leading-[1.03] tracking-tight text-purple sm:text-5xl lg:text-[3.4rem]">
             In the local press
           </h1>
           <div className="rule-brand mt-5" aria-hidden />
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-chocolate-soft">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-chocolate-soft sm:text-xl">
             Features, reviews, and mentions from around Santa Cruz County.
           </p>
         </Container>

@@ -235,9 +235,11 @@
   .sticker {
     position: relative;
     background: var(--color-surface);
-    border: 1.5px solid var(--color-line-purple);
+    border: 1px solid var(--color-line);
     border-radius: var(--radius-card);
-    box-shadow: var(--shadow-soft);
+    box-shadow:
+      0 1px 2px rgba(72, 42, 112, 0.04),
+      0 16px 36px -24px rgba(72, 42, 112, 0.2);
     transition:
       transform 0.18s ease,
       box-shadow 0.18s ease;
@@ -267,9 +269,9 @@
   .eyebrow {
     font-family: var(--font-sans);
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.72rem;
     color: var(--color-blue-deep);
   }
 
@@ -291,10 +293,10 @@
 
   /* Clean pink accent rule (replaces the old rainbow bar) */
   .rule-brand {
-    height: 4px;
-    width: 72px;
+    height: 3px;
+    width: 52px;
     border-radius: 999px;
-    background: linear-gradient(to right, var(--color-pink), var(--color-purple));
+    background: var(--color-pink-deep);
   }
 }
 

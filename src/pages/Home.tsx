@@ -2,14 +2,12 @@ import { Seo } from '../components/Seo'
 import { Section, SectionHeading } from '../components/Section'
 import { Container } from '../components/Container'
 import { ButtonLink } from '../components/ButtonLink'
-import { FlavorTile } from '../components/FlavorTile'
 import { EventCard } from '../components/EventCard'
-import { MediaCard } from '../components/MediaCard'
 import { FindUs } from '../components/FindUs'
 import { HeroDessert } from '../components/HeroDessert'
 import { Star5 } from '../components/doodles'
-import { ClockIcon, MapPinIcon } from '../components/icons'
-import { ACCENT_PASTEL, ACCENT_SOLID } from '../lib/accents'
+import { ClockIcon, ExternalLinkIcon, MapPinIcon } from '../components/icons'
+import { formatDate } from '../lib/format'
 import { site } from '../data/site'
 import { home } from '../data/home'
 import { about } from '../data/about'
@@ -99,23 +97,24 @@ export function Home() {
         <Container>
           <SectionHeading
             id="events-heading"
-            eyebrow={home.events.eyebrow}
             title={home.events.heading}
             intro={home.events.intro}
           />
-          <div className="mt-9">
+          <div className="mt-8">
             {upcoming.length > 0 ? (
-              <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              <div className="divide-y divide-line-purple border-t border-line-purple">
                 {upcoming.map((evt) => (
                   <EventCard key={evt.id} event={evt} />
                 ))}
               </div>
             ) : (
-              <div className="sticker flex flex-col items-center gap-4 p-10 text-center">
+              <div className="border-t border-line-purple pt-8">
                 <p className="max-w-md text-lg text-chocolate-soft">{home.events.emptyState}</p>
-                <ButtonLink to="/contact" variant="outline">
-                  Book a custom order
-                </ButtonLink>
+                <div className="mt-5">
+                  <ButtonLink to="/contact" variant="outline">
+                    Book a custom order
+                  </ButtonLink>
+                </div>
               </div>
             )}
           </div>
@@ -125,24 +124,37 @@ export function Home() {
       {/* ------------------------------------------------------------- Featured */}
       <Section tone="surface" aria-labelledby="featured-heading">
         <Container>
-          <SectionHeading
-            id="featured-heading"
-            eyebrow={home.featured.eyebrow}
-            title={home.featured.heading}
-            intro={home.featured.intro}
-          />
-          <div className="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.slice(0, 6).map((item) => (
-              <FlavorTile
-                key={item.name}
-                name={item.name}
-                description={item.description}
-                accent={item.accent}
-                category={item.category}
-                priceNote={item.priceNote}
-              />
-            ))}
+          <div className="max-w-2xl">
+            <h2
+              id="featured-heading"
+              className="font-display text-[2.1rem] font-extrabold leading-[1.04] tracking-tight text-purple sm:text-[2.6rem] lg:text-[3.1rem]"
+            >
+              {home.featured.heading}
+            </h2>
+            <div className="rule-brand mt-5" aria-hidden />
+            <p className="mt-5 text-lg leading-relaxed text-chocolate-soft">
+              {home.featured.intro}
+            </p>
           </div>
+
+          <ul className="mt-10 grid gap-x-12 sm:grid-cols-2">
+            {featured.slice(0, 6).map((item) => (
+              <li key={item.name} className="border-t border-line-purple py-5">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="font-display text-xl font-bold leading-snug text-purple">
+                    {item.name}
+                  </h3>
+                  <span className="shrink-0 font-display text-base font-semibold text-pink-deep">
+                    {item.priceNote}
+                  </span>
+                </div>
+                <p className="mt-1.5 text-base leading-relaxed text-chocolate-soft">
+                  {item.description}
+                </p>
+              </li>
+            ))}
+          </ul>
+
           <div className="mt-9">
             <ButtonLink to="/menu" variant="primary" withArrow>
               See the full menu
@@ -169,22 +181,12 @@ export function Home() {
               </div>
             </div>
 
-            <ul className="grid gap-4 sm:grid-cols-2">
+            <ul className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
               {about.values.map((value) => (
-                <li
-                  key={value.title}
-                  className="sticker p-5"
-                  style={{ backgroundColor: ACCENT_PASTEL[value.accent] }}
-                >
+                <li key={value.title} className="border-t border-line-purple pt-4">
                   <div className="flex items-center gap-2">
-                    <Star5
-                      className="h-4 w-4 shrink-0"
-                      style={{ color: ACCENT_SOLID[value.accent] }}
-                      aria-hidden
-                    />
-                    <h3 className="font-display text-lg font-semibold text-purple">
-                      {value.title}
-                    </h3>
+                    <Star5 className="h-4 w-4 shrink-0 text-pink" aria-hidden />
+                    <h3 className="font-display text-lg font-semibold text-purple">{value.title}</h3>
                   </div>
                   <p className="mt-1.5 text-base leading-relaxed text-chocolate-soft">
                     {value.description}
@@ -201,20 +203,50 @@ export function Home() {
         <Section aria-labelledby="press-heading">
           <Container>
             <div className="flex flex-wrap items-end justify-between gap-4">
-              <SectionHeading
+              <h2
                 id="press-heading"
-                eyebrow={home.media.eyebrow}
-                title={home.media.heading}
-              />
+                className="font-display text-[2.1rem] font-extrabold leading-[1.04] tracking-tight text-purple sm:text-[2.6rem] lg:text-[3.1rem]"
+              >
+                {home.media.heading}
+              </h2>
               <ButtonLink to="/media" variant="outline">
                 All press
               </ButtonLink>
             </div>
-            <div className="mt-9 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {featuredMedia.map((item) => (
-                <MediaCard key={item.id} item={item} />
-              ))}
-            </div>
+            <div className="rule-brand mt-5" aria-hidden />
+
+            <ul className="mt-8 divide-y divide-line-purple border-t border-line-purple">
+              {featuredMedia.map((item) => {
+                const dateText = formatDate(item.date) || item.dateLabel || ''
+                return (
+                  <li key={item.id} className="py-6">
+                    <a
+                      href={item.link ?? '/media'}
+                      {...(item.link ? { target: '_blank', rel: 'noreferrer noopener' } : {})}
+                      className="group flex items-start justify-between gap-6"
+                    >
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                          <span className="font-brand text-sm font-bold tracking-tight text-blue-deep">
+                            {item.publication}
+                          </span>
+                          {dateText && (
+                            <span className="text-sm text-chocolate-soft">{dateText}</span>
+                          )}
+                        </div>
+                        <h3 className="mt-2 font-display text-xl font-bold leading-snug text-purple transition-colors group-hover:text-purple-deep">
+                          {item.title}
+                        </h3>
+                        <p className="mt-1.5 max-w-2xl text-base leading-relaxed text-chocolate-soft">
+                          {item.snippet}
+                        </p>
+                      </div>
+                      <ExternalLinkIcon className="mt-1 hidden h-5 w-5 shrink-0 text-purple transition-colors group-hover:text-purple-deep sm:block" />
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
           </Container>
         </Section>
       )}
