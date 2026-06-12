@@ -1,5 +1,4 @@
 import { site } from '../data/site'
-import { BrandBadge } from './BrandBadge'
 
 type Variant = 'header' | 'footer'
 
@@ -9,8 +8,8 @@ type Variant = 'header' | 'footer'
  * - Header: the client's real horizontal lockup (SC badge + "Spontaneous
  *   Confections" + tagline) as a transparent PNG. It already contains the
  *   wordmark, so no extra text is rendered beside it. Purple/teal art on cream.
- * - Footer: the recolorable vector lockup in cream, so it stays visible on the
- *   dark purple footer (the purple PNG would disappear there).
+ * - Footer: the same real SC badge on a light disc, so it stays visible on the
+ *   dark purple footer, beside the cream wordmark.
  */
 export function Logo({
   variant = 'header',
@@ -34,22 +33,23 @@ export function Logo({
     )
   }
 
-  // Footer (dark background): cream vector badge + wordmark.
-  const badge = {
-    ring: 'var(--color-blue)',
-    utensil: 'var(--color-cream)',
-    star: 'var(--color-blue)',
-    hole: 'var(--color-purple)',
-    monogramColor: 'var(--color-cream)',
-  }
-
+  // Footer (dark background): the real SC badge on a light disc so it stays
+  // visible against the deep purple, beside the cream wordmark.
   return (
     <span
       className={`inline-flex items-center gap-2.5 ${className}`}
       role="img"
       aria-label={site.logos.alt}
     >
-      <BrandBadge className="h-full w-auto shrink-0" monogram={false} {...badge} />
+      <img
+        src={site.logos.footer}
+        alt=""
+        aria-hidden
+        width={512}
+        height={512}
+        decoding="async"
+        className="h-full w-auto shrink-0 rounded-xl"
+      />
       <span className="leading-[0.98]" aria-hidden>
         <span className="block font-brand text-[1.05rem] font-semibold italic tracking-tight text-cream sm:text-[1.2rem]">
           Spontaneous

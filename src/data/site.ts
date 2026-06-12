@@ -142,8 +142,8 @@ export const site: SiteConfig = {
     // Drop the real files into /public/assets/logos using these names, or
     // change the paths below to match your filenames.
     header: '/assets/logos/logo-header-sc.png',
-    footer: '/assets/logos/logo-footer.svg',
-    favicon: '/favicon.svg',
+    footer: '/assets/logos/logo-mark.png',
+    favicon: '/favicon-32.png',
     alt: 'Spontaneous Confections',
   },
 
@@ -152,7 +152,7 @@ export const site: SiteConfig = {
     defaultTitle: 'Spontaneous Confections — Handmade Pastry & Chocolate in Capitola, CA',
     defaultDescription:
       'Small-batch pastries, chocolate confections, and seasonal sweets, made by hand at the Capitola Mall food court in Santa Cruz County.',
-    ogImage: 'https://spontaneousconfections.com/assets/og-image.svg',
+    ogImage: 'https://spontaneousconfections.com/assets/og-image.png',
     keywords: [
       'Capitola bakery',
       'Santa Cruz patisserie',

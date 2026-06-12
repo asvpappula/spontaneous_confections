@@ -33,11 +33,11 @@ no TypeScript errors.
 
 ```
 public/
-  favicon.svg                 # SC monogram favicon
+  favicon-32.png              # real SC badge favicon (+ apple-touch-icon.png)
   robots.txt, sitemap.xml     # SEO
   assets/
-    logos/                    # ← drop client logos here (see "Branding")
-    og-image.svg              # social share image (replace with a 1200×630 PNG/JPG)
+    logos/                    # real client logos (header lockup + SC badge mark)
+    og-image.png              # social share image (real lockup on cream, 1200×630)
 src/
   data/                       # ← ALL editable business content lives here
     site.ts                   # name, contact, hours, nav, logos, default SEO
@@ -133,15 +133,10 @@ image file, so nothing is ever broken.
    ```
    Use a light/reversed version for the footer (`variant === 'footer'`).
 
-The favicon (`public/favicon.svg`) is the emblem on a plum tile — replace if desired.
-
-Also replace, when available:
-
-- `public/favicon.svg` — browser tab icon.
-- `public/assets/og-image.svg` — social share preview; replace with a **1200×630**
-  PNG/JPG and update the path in `index.html` (`og:image` / `twitter:image`).
-- Add a **180×180** `public/apple-touch-icon.png` and re-add its `<link>` in
-  `index.html` (a TODO comment marks the spot).
+The favicon, apple-touch icon, and footer mark all use the real SC badge
+(`public/favicon-32.png`, `public/apple-touch-icon.png`, and
+`public/assets/logos/logo-mark.png`). The social share image
+(`public/assets/og-image.png`) is the real horizontal lockup on cream.
 
 ### Colors & fonts (the design system)
 
