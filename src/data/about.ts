@@ -25,6 +25,8 @@ export interface TeamMember {
   name: string
   role: string
   bio: string
+  /** Optional headshot path; falls back to a branded placeholder when absent. */
+  image?: string
 }
 
 export interface AboutContent {
@@ -97,6 +99,7 @@ export const about: AboutContent = {
       name: 'Justin Lenorovitz',
       role: 'Pastry Chef & Chocolatier',
       bio: 'A U.S. veteran who trained in pastry at the Institut Culinaire de France in Bordeaux. He runs the kitchen and the chocolate work.',
+      image: '/assets/about/justin.jpg',
     },
     {
       name: 'Stephanie Lenorovitz',

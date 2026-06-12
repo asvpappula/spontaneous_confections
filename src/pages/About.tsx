@@ -41,18 +41,16 @@ export function About() {
             <div className="lg:col-span-5">
               <div className="lg:sticky lg:top-28">
                 <div className="sticker overflow-hidden p-0">
-                  <PlaceholderImage
-                    seed="Justin and Stephanie Lenorovitz"
-                    accent="pink"
-                    caption="Capitola, California"
-                    className="aspect-[4/5] w-full"
-                    rounded="rounded-none"
+                  <img
+                    src="/assets/about/about-us.jpg"
+                    alt="Justin and Stephanie Lenorovitz of Spontaneous Confections"
+                    width={1200}
+                    height={900}
+                    loading="lazy"
+                    decoding="async"
+                    className="aspect-[4/3] w-full object-cover"
                   />
                 </div>
-                <p className="mt-3 text-center text-xs text-chocolate-soft">
-                  {/* TODO: replace with a licensed photo of the owners or the shop. */}
-                  Add a photo of Justin &amp; Stephanie here.
-                </p>
               </div>
             </div>
           </div>
@@ -105,13 +103,23 @@ export function About() {
             {about.team.map((member, i) => (
               <article key={member.name} className="sticker sticker-hover overflow-hidden">
                 <div className="border-b border-line-purple">
-                  <PlaceholderImage
-                    seed={member.name}
-                    accent={i % 2 === 0 ? 'blue' : 'purple'}
-                    caption={member.name}
-                    className="aspect-[3/2] w-full"
-                    rounded="rounded-none"
-                  />
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={`${member.name}, ${member.role} at Spontaneous Confections`}
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[4/5] w-full object-cover"
+                    />
+                  ) : (
+                    <PlaceholderImage
+                      seed={member.name}
+                      accent={i % 2 === 0 ? 'blue' : 'purple'}
+                      caption={member.name}
+                      className="aspect-[4/5] w-full"
+                      rounded="rounded-none"
+                    />
+                  )}
                 </div>
                 <div className="p-6">
                   <h3 className="font-display text-xl font-semibold text-purple">{member.name}</h3>

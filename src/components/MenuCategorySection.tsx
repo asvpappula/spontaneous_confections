@@ -25,9 +25,9 @@ const CATEGORY_ICON: Record<string, Doodle> = {
 }
 
 /**
- * The side visual for a category. Shows the transparent product PNG when the
- * file exists; otherwise renders a soft accent medallion with the category's
- * emblem, so the page reads as finished even before every photo is in.
+ * The side visual for a category. Shows the product photo when the file exists;
+ * otherwise renders a soft accent medallion with the category's emblem, so the
+ * page reads as finished even before every photo is in.
  */
 function MenuMedallion({
   categoryId,
@@ -36,7 +36,7 @@ function MenuMedallion({
   blobIndex,
 }: {
   categoryId: string
-  image?: { src: string; alt: string }
+  image?: MenuCategory['image']
   accent: MenuCategory['accent']
   blobIndex: number
 }) {
@@ -80,8 +80,12 @@ function MenuMedallion({
             loading="lazy"
             decoding="async"
             onError={() => setFailed(true)}
-            className="absolute inset-0 h-full w-full object-contain p-5"
-            style={{ filter: 'drop-shadow(0 14px 16px rgba(72, 42, 112, 0.18))' }}
+            className={
+              image.contain
+                ? 'absolute inset-0 h-full w-full object-contain p-3'
+                : 'absolute inset-0 h-full w-full object-cover'
+            }
+            style={image.objectPosition ? { objectPosition: image.objectPosition } : undefined}
           />
         ) : (
           <Icon

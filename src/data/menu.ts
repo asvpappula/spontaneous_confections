@@ -34,13 +34,12 @@ export interface MenuCategory {
   /** Candy accent color for the category's poster tile. */
   accent: Accent
   /**
-   * Side visual for the category section on the Menu page. Transparent PNG
-   * preferred. Real files present today: signature-sweets (hero collage) and
-   * entremets (golden mousse). The rest point at /public/assets/menu/* paths
-   * that don't exist yet (see the README there) — until a file is dropped in,
-   * the Menu page renders a soft accent medallion in its place.
+   * Side visual for the category section on the Menu page. Real product photos
+   * fill the medallion (object-cover); `contain: true` shows the whole photo
+   * instead (object-contain), and `objectPosition` nudges the crop, e.g.
+   * '50% 70%'. If a file is missing, the page renders a soft accent medallion.
    */
-  image?: { src: string; alt: string }
+  image?: { src: string; alt: string; objectPosition?: string; contain?: boolean }
   items: MenuItem[]
   note?: string
 }
@@ -55,9 +54,8 @@ export const menu: MenuCategory[] = [
     blurb: 'Our signature, made from scratch.',
     accent: 'purple',
     image: {
-      // TODO: drop a transparent PNG at this path (see public/assets/menu/README.txt)
-      src: '/assets/menu/dubai-bars.png',
-      alt: 'A Dubai-style chocolate bar broken open to show pistachio cream and crisp knafeh.',
+      src: '/assets/menu/dubai-goldfoil.jpg',
+      alt: 'A dark Dubai chocolate bar finished with edible gold.',
     },
     items: [
       {
@@ -93,8 +91,8 @@ export const menu: MenuCategory[] = [
     blurb: 'Our own inventions.',
     accent: 'pink',
     image: {
-      src: '/assets/hero/floating-desserts.png',
-      alt: 'An assortment of Spontaneous Confections signature sweets and pastries.',
+      src: '/assets/menu/signature.jpg',
+      alt: 'A 24-karat gold fudge brownie.',
     },
     items: [
       {
@@ -128,8 +126,8 @@ export const menu: MenuCategory[] = [
     blurb: 'Layered mousse cakes that change with the season.',
     accent: 'blue',
     image: {
-      src: '/assets/menu/golden-mousse.png',
-      alt: 'A glossy orange mousse entremet topped with a cream quenelle and gold leaf.',
+      src: '/assets/menu/seasonal.jpg',
+      alt: 'An apricot and pistachio tart.',
     },
     items: [
       {
@@ -151,9 +149,8 @@ export const menu: MenuCategory[] = [
     blurb: 'Crisp pastry, fruit from the Santa Cruz coast.',
     accent: 'pink',
     image: {
-      // TODO: drop a transparent PNG at this path (see public/assets/menu/README.txt)
-      src: '/assets/menu/tarts.png',
-      alt: 'A fresh fruit tart with vanilla cream and market fruit.',
+      src: '/assets/menu/tarts.jpg',
+      alt: 'An assortment of mini fruit tartlets.',
     },
     items: [
       {
@@ -185,9 +182,9 @@ export const menu: MenuCategory[] = [
     blurb: 'Classic French pastry, baked in small batches.',
     accent: 'blue',
     image: {
-      // TODO: drop a transparent PNG at this path (see public/assets/menu/README.txt)
-      src: '/assets/menu/viennoiserie.png',
-      alt: 'Golden choux puffs and laminated French pastries.',
+      src: '/assets/menu/viennoiserie.jpg',
+      alt: 'A Paris-Brest choux pastry.',
+      objectPosition: '50% 70%',
     },
     items: [
       {
@@ -214,9 +211,9 @@ export const menu: MenuCategory[] = [
     blurb: 'For the walk down to Capitola Village.',
     accent: 'purple',
     image: {
-      // TODO: drop a transparent PNG at this path (see public/assets/menu/README.txt)
-      src: '/assets/menu/cookies.png',
-      alt: 'A plate of buttery, freshly baked bakery cookies.',
+      src: '/assets/menu/cookies.jpg',
+      alt: 'A box of assorted holiday butter cookies.',
+      objectPosition: '70% 50%',
     },
     items: [
       {
@@ -237,9 +234,8 @@ export const menu: MenuCategory[] = [
     blurb: 'Celebration cakes, croquembouche, and dessert tables.',
     accent: 'pink',
     image: {
-      // TODO: drop a transparent PNG at this path (see public/assets/menu/README.txt)
-      src: '/assets/menu/custom-cakes.png',
-      alt: 'A custom celebration cake decorated by hand.',
+      src: '/assets/menu/catering.jpg',
+      alt: 'A flight of mini French pastries on a tasting plate.',
     },
     items: [
       {
